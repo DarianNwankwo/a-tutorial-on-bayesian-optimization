@@ -544,6 +544,7 @@ function fit_surrogate(ψ :: RBFfun, X, f)
     d, N = size(X)
     K = eval_KXX(ψ, X)
     fK = cholesky(Hermitian(K))
+    y = f
     c = fK\y
     RBFsurrogate(ψ, X, K, fK, y, c)
 end
